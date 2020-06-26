@@ -1,0 +1,15 @@
+name: new
+description: Drupal 8 starter theme
+type: theme
+core: 8.x
+base theme: stable
+  
+libraries: 	
+    - new/global-css
+    - new/global-js
+    
+regions:
+    header: 'Header'
+    main_navigation: 'Main Navigation'
+    content: 'Main Content'
+    footer: 'Footer'

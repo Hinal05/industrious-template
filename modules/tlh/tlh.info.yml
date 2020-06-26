@@ -1,0 +1,11 @@
+name: Themers little helper
+type: module
+description: Some extra TWIG functions and filters to make a themers live even easier.
+# core: 8.x
+package: Twig
+
+# Information added by Drupal.org packaging script on 2019-07-17
+version: '8.x-1.9'
+core: '8.x'
+project: 'tlh'
+datestamp: 1563356295

@@ -1,0 +1,16 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {#{% set background_image = file_url(content.field_bg_image['#items']) %}
+  <div style="background-image: url({{background_image}})">
+    Test
+  </div>  #}
+  {% block content %}
+    {{ content }}
+    
+  {% endblock %}
+</div>

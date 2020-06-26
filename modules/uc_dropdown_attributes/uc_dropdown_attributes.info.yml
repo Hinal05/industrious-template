@@ -1,0 +1,14 @@
+name: Dropdown attributes
+type: module
+description: 'Allows you to specify children attributes to be displayed, depending on value of parent attribute.'
+package: Ubercart - extra
+# core: 8.x
+dependencies:
+  - ubercart:uc_cart
+  - ubercart:uc_attribute
+
+# Information added by Drupal.org packaging script on 2017-01-30
+version: '8.x-1.0-alpha3'
+core: '8.x'
+project: 'uc_dropdown_attributes'
+datestamp: 1485796088

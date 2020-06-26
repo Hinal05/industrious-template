@@ -1,0 +1,14 @@
+<section class="wrapper">
+  <div{{ attributes.addClass('inner') }}>
+    <header class="special mb-0">
+      {{ title_prefix }}      
+      {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+    </header>
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+  </div>
+</section>

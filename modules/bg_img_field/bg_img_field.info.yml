@@ -1,0 +1,14 @@
+name: Background Image Field
+description: Allows you to add responsive background images based on selctors.
+core: 8.x
+type: module
+package: Field types
+
+dependencies:
+  - drupal:responsive_image
+  - token:token
+
+# Information added by Drupal.org packaging script on 2020-04-02
+version: '8.x-1.6'
+project: 'bg_img_field'
+datestamp: 1585790353

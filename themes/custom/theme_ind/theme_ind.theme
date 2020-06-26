@@ -1,0 +1,76 @@
+<?php 
+    /* Node Preprocess for add class conditionally */
+    function theme_ind_preprocess_node(&$vars) {
+        // Get the current node ID
+        $node = \Drupal::routeMatch()->getParameter('node');
+        if ($node instanceof \Drupal\node\NodeInterface) {
+            // You can get nid and anything else you need from the node object.
+            $nid = $node->id();
+            
+            // print echo text
+            // echo 'hello';
+
+            // Access field value from entity or node object
+            // https://stefvanlooveren.me/blog/how-access-field-value-entity-or-node-object-drupal-8
+            $values = $node->get('field_image_position')->getValue();
+
+            // Print php array
+            // echo '<pre>'; 
+            // print_r($values); 
+            // echo $alignment;
+            // exit;
+
+            // Get node field value from node object
+            $alignment = $values[0]['value'];           
+            
+            if($alignment == 'Right'){
+                $vars['myClass']='rightClass';
+            }
+
+        }        
+    }
+    /* Add col class depending on sidebar */
+    function theme_ind_preprocess_page(&$variables) {
+        // echo Hello;
+
+        if (!empty($variables['page']['sidebar_left']) && !empty($variables['page']['sidebar_right'])) {
+            $variables['con_attributes'] = 'col-sm-6 content-style';
+            $variables['left_attributes'] = 'col-sm-3';
+            $variables['right_attributes'] = 'col-sm-3';
+            // echo 'col-sm-6';
+        }
+        elseif (!empty($variables['page']['sidebar_left'])) {
+            $variables['con_attributes'] = 'col-sm-8 content-style';
+            $variables['left_attributes'] = 'col-sm-4';
+            $variables['right_attributes'] = 'd-none';
+            // echo 'col-sm-4';
+        }
+        elseif (!empty($variables['page']['sidebar_right'])) {
+            $variables['con_attributes'] = 'col-sm-8 content-style';
+            $variables['right_attributes'] = 'col-sm-4';
+            $variables['left_attributes'] = 'd-none';
+            // echo 'col-sm-8';
+        }
+        else {
+            $variables['con_attributes'] = 'col-sm-12';
+            // echo 'col-sm-12';
+        }
+
+
+        // Get current page title
+        //$request = \Drupal::request();
+        //$route_match = \Drupal::routeMatch();
+        //$page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+        //$variables['current_page_title'] = $page_title;
+
+
+        /*if (!empty($variables['node'])) {
+            echo 'Node';
+        } else{
+            echo 'no';
+        }*/
+
+    }
+
+    
+?>

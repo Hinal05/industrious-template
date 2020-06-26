@@ -1,0 +1,16 @@
+global-css:
+    css:
+        theme:
+            css/font-awesome.min.css: {}
+            css/bootstrap.css: {}
+            css/style.css: {}
+global-js:
+    js:
+        js/jquery.min.js: {}
+        js/bootstrap.min.js: {}
+        js/browser.min.js: {}
+        js/breakpoints.min.js: {}
+        js/util.js: {}
+        js/main.js: {}
+    dependencies:
+        - core/jquery

@@ -1,0 +1,62 @@
+{#}
+{{ kint(field_align) }}
+{{ kint(content.field_image_position) }}
+{{ kint(content.field_image_position| render) }}
+{{ kint(content.field_image_position['#items'].getValue()) }}
+{{ kint(content.field_image_position[0]) }}
+{{ kint(content.field_image_position[1]) }}
+{{ kint(content.field_image_position[2]) }}
+{{ kint(content.field_image_position|field_value) }}
+{{ kint(node.field_image_position.value) }}#}
+
+{% 
+  set classes = [
+    'alignwrapper',
+    'myClass',
+    ] 
+%}
+<section id="main" class="wrapper">
+  <div class="inner">
+    <div class="content">
+      <div class="articleWrapper">       
+        
+        <h2>Display content using Preprocess</h2>
+
+        <div{{ attributes.addClass(classes) }}>
+          
+          <div class="img-wrap">             
+            <picture>
+              <source srcset="{{ file_url(node.field_image.entity.uri.value| image_style('desktop')) }}" media="(min-width: 991px)">
+              <source srcset="{{ file_url(node.field_image.entity.uri.value| image_style('mobile')) }}" media="(min-width: 320px)">
+              <img src="{{ file_url(node.field_image.entity.uri.value) }}">
+            </picture>
+          </div>
+
+          {{ content.body }}
+
+        </div>
+
+        <h2>Display content using twig</h2>
+
+        <div{% if node.field_image_position.value == 'Left' %}{{ attributes.addClass('left') }}
+          {% elseif node.field_image_position.value == 'Right' %}{{ attributes.addClass('right') }}
+          {% elseif node.field_image_position.value == 'Top' %}{{ attributes.addClass('top') }}
+          {% endif %}>
+              
+          <div class="img-wrap"> 
+            <picture>
+              <source srcset="{{ file_url(node.field_image.entity.uri.value| image_style('desktop')) }}" media="(min-width: 991px)">
+              <source srcset="{{ file_url(node.field_image.entity.uri.value| image_style('mobile')) }}" media="(min-width: 320px)">
+              <img src="{{ file_url(node.field_image.entity.uri.value) }}">
+            </picture>
+          </div>
+
+          {{ content.body }}  
+
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>

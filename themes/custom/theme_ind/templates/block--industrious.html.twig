@@ -1,0 +1,28 @@
+{#{{ kint (content.field_banner_video.0) }}
+{{ kint (element['#object'].field_banner_video.0.entity.uri.value) }}#}
+<section id="banner">
+  <div{{ attributes.addClass('inner') }}>
+    {% if label %}
+      <h1{{ title_attributes }}>{{ label }}</h1>
+    {% endif %}
+    {{ content.body }}
+{#{{ content.field_banner_video.url }}
+    1<br>
+    {{content.field_banner_video.0}}<br>
+    
+    2<br>
+    {{ file_url(content.field_banner_video‎[0]['#media'].field_field_video.entity.uri.value) }}<br>
+    3<br>
+    {{ file_url(element['#object'].field_banner_video.0.entity.uri.value) }}<br>
+    4<br>
+    {{ node.field_banner_video.entity.uri.value }}
+    5<br>
+    {% set slide_url = file_url(content.field_banner_video[0]['#media'].field_path‎.entity.uri.value) %}
+    6<br>
+    {{ file_url(content.field_banner_video['#items'].entity.uri.value) }}<br>
+    7<br>
+    {{ file_url(node.field_banner_video.entity.fileuri) }}
+    {{ url('<front>') }}{{ field_banner_video‎| replace({'/industrious/' : ''}) }}#}
+    <video autoplay="" loop="" muted="" playsinline="" src="images/banner.mp4"></video>
+  </div>  
+</section>
